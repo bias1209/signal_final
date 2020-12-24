@@ -1,0 +1,32 @@
+import numpy as np
+import matplotlib.pyplot as plt
+
+'''
+不曉得為什麼放在測心律的程式中
+會導致頻譜和訊號停止做動
+故分開執行
+'''
+
+#全部都跟Lesson_4一樣
+angle = np.linspace(-np.pi, np.pi, 50)
+cirx = np.sin(angle)
+ciry = np.cos(angle)
+
+a = [1,1,1,1,1,1,1,1,1,1,1]
+b = [1,0,0,0,0,0,0,0,0,0,0]
+a1 = np.roots(a)
+b1 = np.roots(b)
+
+plt.figure(figsize=(5,5))
+plt.plot(cirx, ciry,'k-')
+plt.plot(np.real(a1), np.imag(a1), 'o', markersize=12)
+plt.plot(np.real(b1), np.imag(b1), 'x', markersize=12)
+plt.grid()
+plt.text(0.1,0.1,'10')
+
+#畫X、Y軸
+plt.xlim((-2, 2))
+plt.xlabel('Real')
+plt.ylim((-2, 2))
+plt.ylabel('Imag')
+plt.show()
