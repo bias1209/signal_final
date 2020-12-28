@@ -108,4 +108,7 @@ while True:
         line4.set_ydata(abs(newfftdata))  #濾波後訊號即時頻譜
         fig.canvas.draw()
         fig.canvas.flush_events()
-        print("即時心律:"+str(heartrate_permin)+"次/min")
+        if(heartrate_permin<0 or heartrate_permin>180): #若訊號為負值或大於180則略過
+            pass
+        else:   
+            print("即時心律:"+str(heartrate_permin)+"次/min")
